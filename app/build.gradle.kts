@@ -8,6 +8,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     application
+    jacoco
     id("org.sonarqube") version "4.2.1.3168"
 }
 
@@ -48,6 +49,20 @@ tasks.withType<Jar> {
 
 tasks.compileJava {
     sourceCompatibility = "${JavaVersion.VERSION_1_8}"
+}
+
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test) // tests are required to run before generating the report
+}
+
+tasks.jacocoTestReport {
+    reports {
+        xml.required = true
+    }
 }
 
 sonar {
