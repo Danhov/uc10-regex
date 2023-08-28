@@ -17,3 +17,10 @@ Regex uses a set of lookahead blocks to check all conditions.
 3. Open terminal and change directory to the one containing this app
 4. Run ./gradlew run --args='\<string to be validated> \<max length param>
 5. You should see result in the log message
+
+Alternatively you can run executable jar
+
+1. Must have `Java 8`
+2. Go to `uc10-regex/app/build/libs`
+3. Run `java -jar app.jar '<string to validate>' '<desired max length>'`
+4. See result in the terminal
