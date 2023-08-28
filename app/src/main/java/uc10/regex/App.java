@@ -13,11 +13,9 @@ public class App {
         Logger logger = Logger.getLogger("App");
 
         if (args.length == 0) {
-            logger.log(Level.WARNING, """
-                    Please provide command line arguments:
-                        1) string to validate against regex
-                        2) max number of characters the string allowed to have
-                    """);
+            logger.log(Level.WARNING, " Please provide command line arguments:\n" +
+                    " 1) string to validate against regex\n" +
+                    " 2) max number of characters the string allowed to have.");
             return;
         }
 

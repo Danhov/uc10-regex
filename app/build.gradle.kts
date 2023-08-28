@@ -40,6 +40,16 @@ tasks.named<Test>("test") {
     useJUnitPlatform()
 }
 
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = "uc10.regex.App"
+    }
+}
+
+tasks.compileJava {
+    sourceCompatibility = "${JavaVersion.VERSION_1_8}"
+}
+
 sonar {
     properties {
         property("sonar.projectKey", "Danhov_uc10-regex")
